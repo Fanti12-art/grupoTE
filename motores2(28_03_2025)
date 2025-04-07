@@ -1,0 +1,65 @@
+ #COUNTERCLOCKWISE(PARA QUE VAYAN EN EL MISMO SENTIDOS LAS RUEDAS)
+LA FUNCIÓN DC SE UTILIZA PARA INDICARLE AL MOTOR LA POTENCIA CON LA QUE DEBE FUNCIONAR, ESTE VA DESDE EL 00 HASTA EL 100
+LA FUNCIÓN SE PONE INDICANDO LA VARIABLE Y AÑADIENDO .dc(número de la potencia deseada) 
+PARA QUE VAYA EN LINEA RECTA SE LE DEBE PONER A AMBOS MOTORES LA MISMA POTENCIA
+PARA QUE GIRE SE LE DEBE INDICAR A UN MOTOR QUE PARE (EJ. motor_der.stop() ) y al otro se le debe indicar la potencia deseada (EJ. motor_izq.dc(LA POTENCIA) ) MÁS SU WAIT CORRESPONDIENTE
+LA POTENCIA DEPENDE DE LA VELOCIDAD DEL HUB
+TP
+from pybricks.hubs import PrimeHub
+ from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
+ from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
+ from pybricks.robotics import DriveBase
+ from pybricks.tools import wait, StopWatch
+ 
+ hub = PrimeHub()
+ 
+ #Inicialización de Variables
+ motor_izq = Motor(Port.B)
+ motor_der = Motor(Port.D,Direction.COUNTERCLOCKWISE)
+
+ 
+ #Código de operación
+ #Movimiento Linea Recta
+  motor_izq.dc(80)
+ motor_der.dc(80)
+ wait(3000)
+
+#Giro1|
+ motor_der.stop()
+ motor_izq.dc(70)
+ wait(2000)
+
+#avance2
+ motor_der.dc(80)
+ motor_izq.dc(80)
+ wait(1500)
+
+#giro2
+ motor_izq.stop()
+ motor_der.dc(70)
+ wait(2000)
+
+ #avance3
+ motor_izq.dc(80)
+ motor_der.dc(80)
+ wait(1500)
+
+ #giro3
+ motor_izq.stop()
+ motor_der.dc(70)
+ wait(2000)
+
+ #avance4
+ motor_izq.dc(80)
+ motor_der.dc(80)
+ wait(2500)
+
+ #giro4
+ motor_der.stop()
+ motor_izq.dc(70)
+ wait(2600)
+
+ #avance5
+ motor_izq.dc(80)
+ motor_der.dc(80)
+ wait(3000)
